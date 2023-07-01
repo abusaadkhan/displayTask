@@ -9,7 +9,7 @@ const Home = () =>{
     const [compute,setCompute] = useState(false)
 
     const updateCompute = () => {
-        setCompute(!compute)
+        setCompute(true)
         updateLists()
         updateUniqueLists()
         console.log(compute)
@@ -44,61 +44,65 @@ const Home = () =>{
 
 
     return(
-        <div className="w-full h-fit min-h-screen bg-[#f5f5f5]" >
-            <div className="TEXTBOXES" >
-                <div className="TEXTA bg-white w-full h-24" >
-                    <label className="w-full" id="listA" for="textboxA" >List A</label>
-                    <textarea className="w-full h-20 bg-[#f5f5f5]"  name="textboxA" placeholder="Please enter list A values" onChange={updateListA} />
+        <div className="w-full h-fit min-h-screen bg-[#f5f5f5] pt-10" >
+            <div className="TEXTBOXESBUTTON flex flex-col justify-center mb-10 " >
+                <div className="TEXTBOXES flex justify-around pb-10" >
+                    <div className="TEXTA bg-red-300 w-[40%] h-fit p-2 rounded-md shadow-2xl" >
+                        <label className="w-full" id="listA" for="textboxA" >List A</label>
+                        <textarea className="w-full h-28 bg-red-200 border-none"  name="textboxA" placeholder="Please enter list A values" onChange={updateListA} />
+                    </div>
+                    <div className="TEXTB bg-blue-300 w-[40%] h-fit p-2 rounded-md shadow-2xl" >
+                        <label className="" id="listB" for="textboxB" >List B</label>
+                        <textarea className="w-full h-28 bg-blue-200" name="textboxB" placeholder="Please enter list B values" onChange={updateListB} />
+                    </div>
                 </div>
-                <div className="TEXTB" >
-                    <label className="" id="listB" for="textboxB" >List B</label>
-                    <textarea className="w-full h-20 bg-[#f5f5f5]" name="textboxB" placeholder="Please enter list B values" onChange={updateListB} />
-                </div>
-                <button className="px-2 bg-red-400 rounded-sm " onClick={updateCompute} >compute</button>
+                <div className="m-auto" ><button className="px-2 w-fit bg-red-400 rounded-sm " onClick={updateCompute} >compute</button></div>
             </div>
             
         
-            {
-                compute && <div className="DISPLAY" >
-            
-                <div className="DISPLAYLISTA" >
+            <div className="w-full mb-10" >
+                {
+                    compute && <div className="DISPLAY flex gap-5 justify-around flex-wrap w-full " >
+                
+                    <div className="DISPLAYLISTA w-[15%] min-w-fit bg-red-300 flex justify-center p-2 rounded-md " >
+                        <ul>
+                        {
+                            listA.map((list,index)=>{
+                                return <li className="ml-1" key={index} >{list} </li>
+                            })
+                        }
+                    </ul>
+                    </div>
+                    <div className="DISPLAYLISTB min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md" >
+                        <ul>
+                        {
+                            listB.map((list,index)=>{
+                                return <li className="ml-1" key={index} >{list} </li>
+                            })
+                        }
+                    </ul>
+                    </div>
+                    <div className="LISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md" >
                     <ul>
-                       {
-                           listA.map((list,index)=>{
-                              return <li className="inline-block ml-1" key={index} >{list} </li>
-                           })
-                       }
-                   </ul>
-                </div>
-                <div className="DISPLAYLISTB" >
+                    {
+                        lists.map((list,index)=>{
+                            return <li className="ml-1" key={index} >{list} </li>
+                        })
+                    }
+                </ul>
+                    </div>
+                    <div className="UNIQUELISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2 rounded-md" >
                     <ul>
-                       {
-                           listB.map((list,index)=>{
-                              return <li className="inline-block ml-1" key={index} >{list} </li>
-                           })
-                       }
-                   </ul>
+                    {
+                        uniqueLists.map((list,index)=>{
+                            return <li className="ml-1" key={index} >{list} </li>
+                        })
+                    }
+                </ul>
+                    </div>
                 </div>
-                <div className="LISTS" >
-                <ul>
-                   {
-                       lists.map((list,index)=>{
-                          return <li className="inline-block ml-1" key={index} >{list} </li>
-                       })
-                   }
-               </ul>
-                </div>
-                <div className="UNIQUELISTS" >
-                <ul>
-                   {
-                       uniqueLists.map((list,index)=>{
-                          return <li className="inline-block ml-1" key={index} >{list} </li>
-                       })
-                   }
-               </ul>
-                </div>
-               </div>
-            }
+                }
+            </div>
         </div>
     )
 }
