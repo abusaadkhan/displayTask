@@ -64,41 +64,45 @@ const Home = () =>{
                 {
                     compute && <div className="DISPLAY flex gap-5 justify-around flex-wrap w-full " >
                 
-                    <div className="DISPLAYLISTA w-[15%]  min-w-fit bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[40%] " >
+                    <div className="DISPLAYLISTA w-[15%]  min-w-fit bg-red-300 flex flex-col justify-center p-2 rounded-md max-[480px]:w-[40%] " >
+                        <h1 className="font-semibold mb-2" >ListA:</h1>
+                        <ul>
+                            {
+                                listA.map((list,index)=>{
+                                    return <li className="ml-1" key={index} >{list} </li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="DISPLAYLISTB min-w-fit w-[15%] bg-red-300 flex flex-col justify-center p-2  rounded-md max-[480px]:w-[40%]" >
+                        <h1 className="font-semibold mb-2" >ListB:</h1>    
+                        <ul>
+                            {
+                                listB.map((list,index)=>{
+                                    return <li className="ml-1" key={index} >{list} </li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                    <div className="LISTS min-w-fit w-[15%] bg-red-300 flex flex-col justify-center p-2  rounded-md max-[480px]:w-[40%]" >
+                        <h1 className="font-semibold mb-2" >ListA and ListB(union):</h1>
                         <ul>
                         {
-                            listA.map((list,index)=>{
+                            lists.map((list,index)=>{
                                 return <li className="ml-1" key={index} >{list} </li>
                             })
                         }
-                    </ul>
+                        </ul>
                     </div>
-                    <div className="DISPLAYLISTB min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[40%]" >
+                    <div className="UNIQUELISTS min-w-fit w-[15%] bg-red-300 flex flex-col justify-center p-2 rounded-md max-[480px]:w-[40%]" >
+                        <h1 className="font-semibold mb-2" >Unique Items:</h1>
                         <ul>
                         {
-                            listB.map((list,index)=>{
+                            uniqueLists.map((list,index)=>{
                                 return <li className="ml-1" key={index} >{list} </li>
                             })
                         }
-                    </ul>
-                    </div>
-                    <div className="LISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[40%]" >
-                    <ul>
-                    {
-                        lists.map((list,index)=>{
-                            return <li className="ml-1" key={index} >{list} </li>
-                        })
-                    }
-                </ul>
-                    </div>
-                    <div className="UNIQUELISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[40%]" >
-                    <ul>
-                    {
-                        uniqueLists.map((list,index)=>{
-                            return <li className="ml-1" key={index} >{list} </li>
-                        })
-                    }
-                </ul>
+                        </ul>
                     </div>
                 </div>
                 }
