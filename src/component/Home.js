@@ -64,7 +64,7 @@ const Home = () =>{
                 {
                     compute && <div className="DISPLAY flex gap-5 justify-around flex-wrap w-full " >
                 
-                    <div className="DISPLAYLISTA w-[15%] min-w-fit bg-red-300 flex justify-center p-2 rounded-md " >
+                    <div className="DISPLAYLISTA w-[20%] min-w-fit bg-red-300 flex justify-center p-2 rounded-md " >
                         <ul>
                         {
                             listA.map((list,index)=>{
