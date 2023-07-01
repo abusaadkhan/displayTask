@@ -64,7 +64,7 @@ const Home = () =>{
                 {
                     compute && <div className="DISPLAY flex gap-5 justify-around flex-wrap w-full " >
                 
-                    <div className="DISPLAYLISTA w-[15%]  min-w-fit bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[30%] " >
+                    <div className="DISPLAYLISTA w-[15%]  min-w-fit bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[40%] " >
                         <ul>
                         {
                             listA.map((list,index)=>{
@@ -73,7 +73,7 @@ const Home = () =>{
                         }
                     </ul>
                     </div>
-                    <div className="DISPLAYLISTB min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[30%]" >
+                    <div className="DISPLAYLISTB min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[40%]" >
                         <ul>
                         {
                             listB.map((list,index)=>{
@@ -82,7 +82,7 @@ const Home = () =>{
                         }
                     </ul>
                     </div>
-                    <div className="LISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[30%]" >
+                    <div className="LISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2  rounded-md max-[480px]:w-[40%]" >
                     <ul>
                     {
                         lists.map((list,index)=>{
@@ -91,7 +91,7 @@ const Home = () =>{
                     }
                 </ul>
                     </div>
-                    <div className="UNIQUELISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[30%]" >
+                    <div className="UNIQUELISTS min-w-fit w-[15%] bg-red-300 flex justify-center p-2 rounded-md max-[480px]:w-[40%]" >
                     <ul>
                     {
                         uniqueLists.map((list,index)=>{
