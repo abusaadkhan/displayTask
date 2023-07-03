@@ -14,8 +14,9 @@ const Home = () =>{
     const updateCompute = () => {
         setCompute(true)
         updateLists()
-        updateUniqueLists()
+        
         updateCommonItem()
+        updateUniqueLists()
         updatedListA()
         updatedListB()
     }
