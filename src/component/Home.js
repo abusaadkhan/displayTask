@@ -22,13 +22,13 @@ const Home = () =>{
     }
 
     const updateListA = (e) => {
-        let str = e.target.value.toLowerCase().split('\n')
+        let str = e.target.value.toLowerCase().split(/[\n " "]+/)
         setListA(str)
         
     }
 
     const updateListB = (e) => {
-        let str = e.target.value.toLowerCase().split('\n')
+        let str = e.target.value.toLowerCase().split(/[\n " "]+/)
         setListB(str)
         //console.log("LISTB:",listB,listB.length)
     }
