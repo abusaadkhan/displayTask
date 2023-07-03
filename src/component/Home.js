@@ -6,31 +6,32 @@ const Home = () =>{
     const [listB,setListB] = useState([])
     const [lists,setLists] = useState([])
     const [uniqueLists,setUniqueLists] = useState([])
+    const [commonLists,setCommonLists] = useState([])
     const [compute,setCompute] = useState(false)
 
     const updateCompute = () => {
         setCompute(true)
         updateLists()
         updateUniqueLists()
-        console.log(compute)
+        updateCommonItem()
     }
 
     const updateListA = (e) => {
         let str = e.target.value.toLowerCase().split(' ')
         setListA(str)
-        console.log("LISTA:",listA,listA.length)
+        
     }
 
     const updateListB = (e) => {
         let str = e.target.value.toLowerCase().split(' ')
         setListB(str)
-        console.log("LISTB:",listB,listB.length)
+        //console.log("LISTB:",listB,listB.length)
     }
 
     const updateLists = () => {
         let list = [...listA,...listB]
         setLists(list)
-        console.log('LISTS:',lists)
+        //console.log('LISTS:',lists)
     }
 
     const updateUniqueLists = () => {
@@ -38,10 +39,14 @@ const Home = () =>{
         let uniqueListB = listB.filter(item => listA.indexOf(item) === -1)
         let uniquelists = [...uniqueListA,...uniqueListB]
         setUniqueLists(uniquelists)
-        console.log(uniqueLists)
+       // console.log(uniqueLists)
     }
 
 
+    const updateCommonItem = () => {
+        let commonItemList = listA.filter(item => listB.indexOf(item) !== -1 )
+        setCommonLists(commonItemList)
+    }
 
     return(
         <div className="w-full h-fit min-h-screen bg-[#f5f5f5] pt-10" >
@@ -99,6 +104,17 @@ const Home = () =>{
                         <ul>
                         {
                             uniqueLists.map((list,index)=>{
+                                return <li className="ml-1" key={index} >{list} </li>
+                            })
+                        }
+                        </ul>
+                    </div>
+
+                    <div className="COMMONLISTS min-w-fit w-[40%] bg-red-300 flex flex-col justify-center p-2 rounded-md max-[480px]:w-[90%]" >
+                        <h1 className="font-semibold mb-2" >Common Items :</h1>
+                        <ul>
+                        {
+                            commonLists.map((list,index)=>{
                                 return <li className="ml-1" key={index} >{list} </li>
                             })
                         }
