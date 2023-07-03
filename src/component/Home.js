@@ -7,6 +7,8 @@ const Home = () =>{
     const [lists,setLists] = useState([])
     const [uniqueLists,setUniqueLists] = useState([])
     const [commonLists,setCommonLists] = useState([])
+    const [modifiedListA,setModifiedListA] = useState([])
+    const [modifiedListB,setModifiedListB] = useState([])
     const [compute,setCompute] = useState(false)
 
     const updateCompute = () => {
@@ -14,6 +16,8 @@ const Home = () =>{
         updateLists()
         updateUniqueLists()
         updateCommonItem()
+        updatedListA()
+        updatedListB()
     }
 
     const updateListA = (e) => {
@@ -34,13 +38,7 @@ const Home = () =>{
         //console.log('LISTS:',lists)
     }
 
-    const updateUniqueLists = () => {
-        let uniqueListA = listA.filter(item => listB.indexOf(item) === -1)
-        let uniqueListB = listB.filter(item => listA.indexOf(item) === -1)
-        let uniquelists = [...uniqueListA,...uniqueListB]
-        setUniqueLists(uniquelists)
-       // console.log(uniqueLists)
-    }
+
 
 
     const updateCommonItem = () => {
@@ -48,6 +46,23 @@ const Home = () =>{
         setCommonLists(commonItemList)
     }
 
+    const updateUniqueLists = () => {
+        let uniqueListA = listA.filter(item => listB.indexOf(item) === -1)
+        let uniqueListB = listB.filter(item => listA.indexOf(item) === -1)
+        let uniquelists = [...uniqueListA,...uniqueListB,...commonLists]
+        setUniqueLists(uniquelists)
+       // console.log(uniqueLists)
+    }
+
+    const updatedListA = () => {
+        let updatedListA = listA.filter(item => listB.indexOf(item) === -1)
+        setModifiedListA(updatedListA)
+    }
+
+    const updatedListB = () => {
+        let updatedListB = listB.filter(item => listA.indexOf(item) === -1)
+        setModifiedListB(updatedListB)       
+    }
     return(
         <div className="w-full h-fit min-h-screen bg-[#f5f5f5] pt-10" >
             <div className="TEXTBOXESBUTTON flex flex-col justify-center mb-10 " >
@@ -73,7 +88,7 @@ const Home = () =>{
                         <h1 className="font-semibold mb-2" >ListA:</h1>
                         <ul>
                             {
-                                listA.map((list,index)=>{
+                                modifiedListA.map((list,index)=>{
                                     return <li className="ml-1" key={index} >{list} </li>
                                 })
                             }
@@ -83,22 +98,13 @@ const Home = () =>{
                         <h1 className="font-semibold mb-2" >ListB:</h1>    
                         <ul>
                             {
-                                listB.map((list,index)=>{
+                                modifiedListB.map((list,index)=>{
                                     return <li className="ml-1" key={index} >{list} </li>
                                 })
                             }
                         </ul>
                     </div>
-                    <div className="LISTS min-w-fit w-[40%] bg-red-300 flex flex-col justify-center p-2  rounded-md max-[480px]:w-[90%]" >
-                        <h1 className="font-semibold mb-2" >ListA and ListB(union):</h1>
-                        <ul>
-                        {
-                            lists.map((list,index)=>{
-                                return <li className="ml-1" key={index} >{list} </li>
-                            })
-                        }
-                        </ul>
-                    </div>
+                    
                     <div className="UNIQUELISTS min-w-fit w-[40%] bg-red-300 flex flex-col justify-center p-2 rounded-md max-[480px]:w-[90%]" >
                         <h1 className="font-semibold mb-2" >Unique Items :</h1>
                         <ul>
