@@ -50,7 +50,8 @@ const Home = () =>{
     const updateUniqueLists = () => {
         let uniqueListA = listA.filter(item => listB.indexOf(item) === -1)
         let uniqueListB = listB.filter(item => listA.indexOf(item) === -1)
-        let uniquelists = [...uniqueListA,...uniqueListB,...commonLists]
+        let commonItemList = listA.filter(item => listB.indexOf(item) !== -1 )
+        let uniquelists = [...uniqueListA,...uniqueListB,...commonItemList]
         setUniqueLists(uniquelists)
        // console.log(uniqueLists)
     }
